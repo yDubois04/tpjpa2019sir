@@ -10,8 +10,7 @@ public class JpaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		EntityManager manager = EntityManagerHelper.getEntityManager();
+	    EntityManager manager = EntityManagerHelper.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 
