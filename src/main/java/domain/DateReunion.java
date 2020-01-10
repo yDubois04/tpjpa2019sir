@@ -37,6 +37,10 @@ public class DateReunion {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", date=" + date + ", pauseDej=" + contientPauseDej + "]";
+	}
 
 }

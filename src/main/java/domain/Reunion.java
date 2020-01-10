@@ -34,6 +34,10 @@ public class Reunion {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", intitule=" + intitule + ", resume=" + resume + "]";
+	}
 
 }

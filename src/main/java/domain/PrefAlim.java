@@ -15,6 +15,10 @@ public class PrefAlim {
 	public void setPrefAlim(String prefAlim) {
 		this.prefAlim = prefAlim;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Utilisateur [allergie=" + prefAlim + "]";
+	}
 	
 }
