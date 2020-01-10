@@ -11,7 +11,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.10.Final</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
