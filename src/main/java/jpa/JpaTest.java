@@ -2,10 +2,8 @@ package jpa;
 
 import domain.Utilisateur;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class JpaTest {
 
@@ -36,14 +34,8 @@ public class JpaTest {
 			e.printStackTrace();
 		}
 		tx.commit();
-//		String s = "SELECT e FROM Person as e where e.name=:name";
 
-//		Query q = manager.createQuery(s,Person.class);
-//		q.setParameter("name", "martin");
-//		List<Person> res = q.getResultList();
-
-//		System.err.println(res.size());
-//		System.err.println(res.get(0).getName());
+		test.userList();
 
 		manager.close();
 		factory.close();
@@ -67,6 +59,17 @@ public class JpaTest {
 		u3.setMail("user.three@mail.com");
 		u3.setPrenom("three");
 		manager.persist(u3);
+	}
+
+	public void userList(){
+		String s = "SELECT u FROM Utilisateur as u";
+
+		Query q = manager.createQuery(s,Utilisateur.class);
+		List<Utilisateur> res = q.getResultList();
+
+		for(Utilisateur u : res){
+			System.err.println(u.getName());
+		}
 	}
 
 }
