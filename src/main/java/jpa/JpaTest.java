@@ -1,11 +1,19 @@
 package jpa;
 
+import domain.Utilisateur;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class JpaTest {
+
+	EntityManager manager;
+
+	public JpaTest(EntityManager manager){
+		this.manager = manager;
+	}
 
 	/**
 	 * @param args
@@ -15,16 +23,13 @@ public class JpaTest {
 				.createEntityManagerFactory("dev");
 		EntityManager manager = factory.createEntityManager();
 
+		JpaTest test = new JpaTest(manager);
+
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		try {
 
-
-/*Person p = new Person();
-			p.setName("martin");
-			manager.persist(p);*/
-
-
+			test.createUsers();
 
 
 		} catch (Exception e) {
@@ -42,6 +47,26 @@ public class JpaTest {
 
 		manager.close();
 		factory.close();
+	}
+
+	public void createUsers(){
+		Utilisateur u1 = new Utilisateur();
+		u1.setName("user");
+		u1.setMail("user.one@mail.com");
+		u1.setPrenom("one");
+		manager.persist(u1);
+
+		Utilisateur u2 = new Utilisateur();
+		u2.setName("user");
+		u2.setMail("user.two@mail.com");
+		u2.setPrenom("two");
+		manager.persist(u2);
+
+		Utilisateur u3 = new Utilisateur();
+		u3.setName("user");
+		u3.setMail("user.three@mail.com");
+		u3.setPrenom("three");
+		manager.persist(u3);
 	}
 
 }
