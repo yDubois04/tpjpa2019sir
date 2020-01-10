@@ -8,6 +8,7 @@ public class Sondage {
 	
 	private String lien;
 	private List<DateReunion> datesPossibles;
+	private Reunion reunion;
 	private List<Utilisateur> participants;
 	private Utilisateur createur;
 	
@@ -51,8 +52,9 @@ public class Sondage {
 	}
 
 	@Override
-	public String toString () {
-		return "Sondage [lien ="+lien+"]";
+	public String toString() {
+		return "Utilisateur [lien=" + lien + ", reunion=" + reunion + ", createur=" + createur + ", nbDatePossible="
+				+ datesPossibles.size() + ", nbParticipants=" + participants.size() + "]";
 	}
 
 }

@@ -15,4 +15,10 @@ public class Allergie {
 	public void setAllergie(String allergie) {
 		this.allergie = allergie;
 	}
+
+	@Override
+	public String toString() {
+		return "Utilisateur [allergie=" + allergie + "]";
+	}
+
 }

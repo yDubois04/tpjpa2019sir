@@ -11,8 +11,10 @@ public class DateReunion {
 	private long id;
 	private Date date;
 	private boolean contientPauseDej;
+	@Transient 
 	private List <Sondage> sondages;
-	private List <Reunion> reunion;
+	@Transient
+	private Reunion reunion;
 	
 	public Date getDate() {
 		return date;
@@ -39,6 +41,11 @@ public class DateReunion {
 	@OneToMany(mappedBy = "dateReunion")
 	public List<Reunion> getReunion() {
 		return reunion;
+	}
+
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", date=" + date + ", pauseDej=" + contientPauseDej + "]";
 	}
 
 	public void setReunion(List<Reunion> reunion) {

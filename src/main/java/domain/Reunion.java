@@ -11,8 +11,8 @@ public class Reunion {
 	private DateReunion dateReunion;
 	private Sondage sondage;
 
-	@Id
-	@GeneratedValue
+    @Id
+    @GeneratedValue
 	public long getId() {
 		return id;
 	}
@@ -41,16 +41,11 @@ public class Reunion {
 
 	public void setDateReunion(DateReunion dateReunion) {
 		this.dateReunion = dateReunion;
-	}
 
-	@OneToOne
-	public Sondage getSondage() {
-		return sondage;
-	}
 
-	public void setSondage(Sondage sondage) {
-		this.sondage = sondage;
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", intitule=" + intitule + ", resume=" + resume + "]";
 	}
-
 
 }
