@@ -11,7 +11,6 @@ public class Sondage {
 	private Reunion reunion;
 	private List<Utilisateur> participants;
 	private Utilisateur createur;
-	
 
 	@Id
 	public String getLien() {

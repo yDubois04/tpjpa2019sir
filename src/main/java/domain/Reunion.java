@@ -9,7 +9,7 @@ public class Reunion {
 	private String resume;
 	private long id;
 	private DateReunion dateReunion;
-	private Sondage sondage;
+    private Sondage sondage;
 
     @Id
     @GeneratedValue
@@ -40,8 +40,17 @@ public class Reunion {
 	}
 
 	public void setDateReunion(DateReunion dateReunion) {
-		this.dateReunion = dateReunion;
+        this.dateReunion = dateReunion;
+    }
 
+    @OneToOne
+    public Sondage getSondage() {
+        return sondage;
+    }
+
+    public void setSondage(Sondage sondage) {
+        this.sondage = sondage;
+    }
 
 	@Override
 	public String toString() {

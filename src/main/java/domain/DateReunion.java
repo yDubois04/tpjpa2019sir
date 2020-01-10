@@ -11,10 +11,8 @@ public class DateReunion {
 	private long id;
 	private Date date;
 	private boolean contientPauseDej;
-	@Transient 
 	private List <Sondage> sondages;
-	@Transient
-	private Reunion reunion;
+	private List<Reunion> reunions;
 	
 	public Date getDate() {
 		return date;
@@ -39,17 +37,12 @@ public class DateReunion {
 	}
 
 	@OneToMany(mappedBy = "dateReunion")
-	public List<Reunion> getReunion() {
-		return reunion;
+	public List<Reunion> getReunions() {
+		return reunions;
 	}
 
-	@Override
-	public String toString() {
-		return "Utilisateur [id=" + id + ", date=" + date + ", pauseDej=" + contientPauseDej + "]";
-	}
-
-	public void setReunion(List<Reunion> reunion) {
-		this.reunion = reunion;
+	public void setReunions(List<Reunion> reunion) {
+		this.reunions = reunion;
 	}
 
 	@ManyToMany (mappedBy = "datesPossibles")
@@ -60,4 +53,9 @@ public class DateReunion {
 	public void setSondages(List<Sondage> sondages) {
 		this.sondages = sondages;
 	}
+
+    @Override
+    public String toString() {
+        return "Utilisateur [id=" + id + ", date=" + date + ", pauseDej=" + contientPauseDej + "]";
+    }
 }
