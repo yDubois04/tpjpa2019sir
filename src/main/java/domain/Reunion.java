@@ -7,14 +7,19 @@ public class Reunion {
 	
 	private String intitule;
 	private String resume;
+	private long id;
+	private DateReunion dateReunion;
+	private Sondage sondage;
+
 	@Id
 	@GeneratedValue
-	private long id;
-	@Transient
-	private Reunion reunion;
-	
-	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getIntitule() {
 		return intitule;
 	}
@@ -27,13 +32,25 @@ public class Reunion {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-	
-	public long getId() {
-		return id;
+
+	@ManyToOne
+	@JoinColumn(name = "date_id")
+	public DateReunion getDateReunion() {
+		return dateReunion;
 	}
-	public void setId(long id) {
-		this.id = id;
+
+	public void setDateReunion(DateReunion dateReunion) {
+		this.dateReunion = dateReunion;
 	}
-	
+
+	@OneToOne
+	public Sondage getSondage() {
+		return sondage;
+	}
+
+	public void setSondage(Sondage sondage) {
+		this.sondage = sondage;
+	}
+
 
 }
