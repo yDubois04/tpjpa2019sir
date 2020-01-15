@@ -8,7 +8,6 @@ import javax.persistence.*;
 public abstract class Sondage {
 	
 	private String lien;
-	private Reunion reunion;
 	private List<Utilisateur> participants;
 	private Utilisateur createur;
 
@@ -42,7 +41,7 @@ public abstract class Sondage {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [lien=" + lien + ", reunion=" + reunion + ", createur=" + createur + ", nbParticipants=" + participants.size() + "]";
+		return "Utilisateur [lien=" + lien + ", createur=" + createur.toString() + ", nbParticipants=" + participants.size() + "]";
 	}
 
 }
