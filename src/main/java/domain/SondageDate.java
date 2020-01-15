@@ -8,12 +8,12 @@ import java.util.List;
 public class SondageDate extends Sondage {
     private List<DateReunion> datesPossibles;
 
-    @Override
+    @ManyToMany
+    @JoinTable(name="SondageDate_DateReunion")
     public List<DateReunion> getDatesPossibles() {
         return datesPossibles;
     }
 
-    @Override
     public void setDatesPossibles(List<DateReunion> datesPossibles) {
         this.datesPossibles = datesPossibles;
     }

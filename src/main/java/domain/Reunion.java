@@ -9,6 +9,7 @@ public class Reunion {
 	private String resume;
 	private long id;
 	private DateReunion dateReunion;
+	private LieuReunion lieuReunion;
     private Sondage sondage;
 
     @Id
@@ -57,4 +58,13 @@ public class Reunion {
 		return "Utilisateur [id=" + id + ", intitule=" + intitule + ", resume=" + resume + "]";
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "lieu_id")
+	public LieuReunion getLieuReunion() {
+		return lieuReunion;
+	}
+
+	public void setLieuReunion(LieuReunion lieuReunion) {
+		this.lieuReunion = lieuReunion;
+	}
 }
