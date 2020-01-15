@@ -43,19 +43,19 @@ public class JpaTest {
 
 	public void createUsers(){
 		Utilisateur u1 = new Utilisateur();
-		u1.setName("user");
+		u1.setNom("user");
 		u1.setMail("user.one@mail.com");
 		u1.setPrenom("one");
 		manager.persist(u1);
 
 		Utilisateur u2 = new Utilisateur();
-		u2.setName("user");
+		u2.setNom("user");
 		u2.setMail("user.two@mail.com");
 		u2.setPrenom("two");
 		manager.persist(u2);
 
 		Utilisateur u3 = new Utilisateur();
-		u3.setName("user");
+		u3.setNom("user");
 		u3.setMail("user.three@mail.com");
 		u3.setPrenom("three");
 		manager.persist(u3);
@@ -68,7 +68,7 @@ public class JpaTest {
 		List<Utilisateur> res = q.getResultList();
 
 		for(Utilisateur u : res){
-			System.err.println(u.getName());
+			System.err.println(u.getNom());
 		}
 	}
 
