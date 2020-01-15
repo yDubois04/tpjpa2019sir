@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Utilisateur {
 	
-	private String name;
+	private String nom;
 	private String prenom;
 	private String mail;
 	private Collection<PrefAlim> prefAlim;
@@ -16,11 +16,11 @@ public class Utilisateur {
 	private Collection<Sondage> sondages;
 	private Collection<Sondage> sondagesCrees;
 	
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public String getPrenom() {
 		return prenom;
@@ -76,7 +76,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + mail + ", name=" + name + "]";
+		return "Utilisateur [id= " + mail + ", name= " + nom + ", prenom = "+prenom+"]";
 	}
 
 }
