@@ -27,15 +27,14 @@ public class JpaTest {
 		tx.begin();
 		try {
 
-			test.createUsers();
-
+			//test.createUsers();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		tx.commit();
 
-		test.userList();
+		//test.userList();
 
 		manager.close();
 		factory.close();

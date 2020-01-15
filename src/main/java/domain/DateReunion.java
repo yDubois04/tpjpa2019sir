@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,15 +8,15 @@ import javax.persistence.*;
 public class DateReunion {
 
 	private long id;
-	private Date date;
+	private String date;
 	private boolean contientPauseDej;
 	private List <SondageDate> sondages;
 	private List<Reunion> reunions;
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public boolean isContientPauseDej() {
