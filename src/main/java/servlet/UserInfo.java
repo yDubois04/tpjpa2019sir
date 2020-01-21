@@ -41,36 +41,43 @@ public class UserInfo extends HttpServlet {
         String prenom = request.getParameter("prenom");
         String email = request.getParameter("email");
 
-        //Création de l'objet
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setMail(email);
-        utilisateur.setNom(nom);
-        utilisateur.setPrenom(prenom);
-
-        //Enregistrement dans la base
-        EntityManager manager = Persistence.createEntityManagerFactory("mysql").createEntityManager();
-        EntityTransaction tx = manager.getTransaction();
-        tx.begin();
-        try {
-            manager.persist(utilisateur);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        tx.commit();
-        manager.close();
-
-        //Affichage de ce qui a été ajouté
         PrintWriter printer = response.getWriter();
-        printer.println("<HTML>\n<BODY>\n" +
-                "<H1>Utilisateur ajouté : </H1>\n" +
-                "<UL>\n" +
-                " <LI>Nom: "
-                + request.getParameter("nom") + "\n" +
-                " <LI>Prenom: "
-                + request.getParameter("prenom") + "\n" +
-                " <LI>Email: "
-                + request.getParameter("email") + "\n" +
-                "</UL>\n" +
-                "</BODY></HTML>");
+
+        //Création de l'objet
+        if ( ! email.equals("")) {
+            Utilisateur utilisateur = new Utilisateur();
+            utilisateur.setMail(email);
+            utilisateur.setNom(nom);
+            utilisateur.setPrenom(prenom);
+
+            //Enregistrement dans la base
+            EntityManager manager = Persistence.createEntityManagerFactory("mysql").createEntityManager();
+            EntityTransaction tx = manager.getTransaction();
+            tx.begin();
+            try {
+                manager.persist(utilisateur);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            tx.commit();
+            manager.close();
+
+            //Affichage de ce qui a été ajouté
+            printer.println("<HTML>\n<BODY>\n" +
+                    "<H1>Utilisateur ajouté : </H1>\n" +
+                    "<UL>\n" +
+                    " <LI>Nom: "
+                    + request.getParameter("nom") + "\n" +
+                    " <LI>Prenom: "
+                    + request.getParameter("prenom") + "\n" +
+                    " <LI>Email: "
+                    + request.getParameter("email") + "\n" +
+                    "</UL>\n" +
+                    "</BODY></HTML>");
+        }
+        else {
+            printer.print("Il est obligatoire de renseigner un email");
+        }
     }
+
 }
