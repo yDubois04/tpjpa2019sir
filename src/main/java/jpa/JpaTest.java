@@ -18,7 +18,7 @@ public class JpaTest {
 	 */
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence
-				.createEntityManagerFactory("dev");
+				.createEntityManagerFactory("mysql");
 		EntityManager manager = factory.createEntityManager();
 
 		JpaTest test = new JpaTest(manager);
@@ -27,15 +27,14 @@ public class JpaTest {
 		tx.begin();
 		try {
 
-			test.createUsers();
-
+			//test.createUsers();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		tx.commit();
 
-		test.userList();
+		//test.userList();
 
 		manager.close();
 		factory.close();

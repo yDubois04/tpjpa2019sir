@@ -1,0 +1,34 @@
+<html>
+<head>
+    <script>
+        <!--
+        function addinputfields(){
+            var number = document.getElementById("dates").value;
+
+            for (i=0;i<number;i++){
+
+                var input = document.createElement("input");
+                input.type = "text";
+                input.size = 100;
+                input.name = "date" + i+1;
+                datesContainer.appendChild(input);
+                datesContainer.appendChild(document.createElement("br"));
+            }
+        }
+        //-->
+    </script>
+</head>
+<body>
+<FORM Method="POST" Action="/FormSondage">
+    Lien du sondage : 		<INPUT type=text size=100 name=lien><BR>
+    EMail du createur : 	<INPUT type=text size=100 name=mail><BR>
+
+    Nombre de dates :<input type="text" id="dates" name="dates"><br />
+    <input type="button" onclick="addinputfields()" value="clickMe" />
+    <div id="datesContainer">
+    </div>
+    <INPUT type=submit value=Send>
+
+</FORM>
+</body>
+</html>
