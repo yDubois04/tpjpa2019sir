@@ -12,7 +12,7 @@ public class UtilisateurDAO {
 
     }
 
-    public Utilisateur save(Utilisateur u ) {
+    public Utilisateur save (Utilisateur u ) {
         EntityManagerHelper.beginTransaction();
         if (u.getMail() != null) {
             EntityManagerHelper.getEntityManager().merge(u);
