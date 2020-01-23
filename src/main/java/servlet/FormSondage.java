@@ -10,10 +10,7 @@ package servlet;
         import java.util.Date;
         import java.util.List;
 
-        import javax.persistence.EntityManager;
-        import javax.persistence.EntityManagerFactory;
-        import javax.persistence.Persistence;
-        import javax.persistence.Query;
+        import javax.persistence.*;
         import javax.servlet.ServletException;
         import javax.servlet.annotation.WebServlet;
         import javax.servlet.http.HttpServlet;
@@ -30,8 +27,10 @@ public class FormSondage extends HttpServlet {
 
         //Manager's creation
         EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("dev");
+                .createEntityManagerFactory("mysql");
         EntityManager manager = factory.createEntityManager();
+        EntityTransaction tx = manager.getTransaction();
+        tx.begin();
         ////////////
 
         //Query
@@ -92,6 +91,9 @@ public class FormSondage extends HttpServlet {
 
         out.println("</UL>\n" +
                     "</BODY></HTML>");
+
+        tx.commit();
+        manager.close();
 
     }
 }
