@@ -1,5 +1,7 @@
 package fr.istic.sir.dto;
 
+import domain.DateReunion;
+import domain.LieuReunion;
 import domain.Utilisateur;
 
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ public class SondageDTO {
     private String lien;
     private List<String> names;
     private String utilisateur;
+    private List<String> lieux;
+    private List<String> dates;
 
     public String getLien() {
         return lien;
@@ -37,5 +41,31 @@ public class SondageDTO {
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur.getMail();
     }
+
+
+    public List<String> getLieux() {
+        return lieux;
+    }
+
+    public void setLieux(List<LieuReunion> listLieux) {
+        ArrayList<String> list = new ArrayList<String>();
+        for (LieuReunion lieu : listLieux) {
+            list.add(lieu.getNomLieu());
+        }
+        this.lieux = list;
+    }
+
+    public List<String> getDates() {
+        return dates;
+    }
+
+    public void setDates(List<DateReunion> listDates) {
+        ArrayList<String> list = new ArrayList<String>();
+        for (DateReunion date : listDates) {
+            list.add(date.getDate());
+        }
+        this.lieux = list;
+    }
+
 
 }

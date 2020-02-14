@@ -8,7 +8,7 @@ import java.util.List;
 public class SondageDate extends Sondage {
     private List<DateReunion> datesPossibles;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="SondageDate_DateReunion")
     public List<DateReunion> getDatesPossibles() {
         return datesPossibles;

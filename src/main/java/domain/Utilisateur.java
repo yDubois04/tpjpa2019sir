@@ -14,19 +14,6 @@ public class Utilisateur {
 	private Collection<Sondage> sondages;
 	private Collection<Sondage> sondagesCrees;
 	
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	
 	@Id
 	public String getMail() {
 		return mail;
@@ -75,6 +62,20 @@ public class Utilisateur {
 	@Override
 	public String toString() {
 		return "Utilisateur [id= " + mail + ", name= " + nom + ", prenom = "+prenom+"]";
+	}
+
+
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 }

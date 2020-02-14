@@ -2,6 +2,7 @@ package fr.istic.sir.dao;
 
 import domain.Sondage;
 import domain.SondageDate;
+import domain.SondageLieu;
 import jpa.EntityManagerHelper;
 import org.modelmapper.ModelMapper;
 
@@ -27,6 +28,16 @@ public class SondageDAO {
 
     public List<Sondage> findAll() {
         return EntityManagerHelper.getEntityManager().createQuery("select s from Sondage as s", Sondage.class)
+                .getResultList();
+    }
+
+    public List<SondageDate> findSondageDate (){
+        return EntityManagerHelper.getEntityManager().createQuery("select s from SondageDate as s", SondageDate.class)
+                .getResultList();
+    }
+
+    public List<SondageLieu> findSondageLieu (){
+        return EntityManagerHelper.getEntityManager().createQuery("select s from SondageLieu as s", SondageLieu.class)
                 .getResultList();
     }
 

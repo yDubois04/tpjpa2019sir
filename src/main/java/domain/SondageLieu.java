@@ -1,6 +1,7 @@
 package domain;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -8,7 +9,7 @@ import java.util.List;
 public class SondageLieu extends Sondage {
     private List<LieuReunion> lieuPossibles;
 
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(name="SondageLieu_LieuReunion")
     public List<LieuReunion> getLieuPossibles() {
         return lieuPossibles;

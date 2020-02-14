@@ -12,19 +12,6 @@ public class DateReunion {
 	private boolean contientPauseDej;
 	private List <SondageDate> sondages;
 	private List<Reunion> reunions;
-	
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public boolean isContientPauseDej() {
-		return contientPauseDej;
-	}
-	public void setContientPauseDej(boolean contientPauseDej) {
-		this.contientPauseDej = contientPauseDej;
-	}
 
 	@Id
 	@GeneratedValue
@@ -44,7 +31,7 @@ public class DateReunion {
 		this.reunions = reunion;
 	}
 
-	@ManyToMany (mappedBy = "datesPossibles")
+	@ManyToMany (mappedBy = "datesPossibles", cascade = CascadeType.ALL)
 	public List<SondageDate> getSondages() {
 		return sondages;
 	}
@@ -53,7 +40,21 @@ public class DateReunion {
 		this.sondages = sondages;
 	}
 
-    @Override
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public boolean isContientPauseDej() {
+		return contientPauseDej;
+	}
+	public void setContientPauseDej(boolean contientPauseDej) {
+		this.contientPauseDej = contientPauseDej;
+	}
+
+
+	@Override
     public String toString() {
         return "Date [id=" + id + ", date=" + date + ", pauseDej=" + contientPauseDej + "]";
     }
