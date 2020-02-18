@@ -1,14 +1,16 @@
 package jpa;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class EntityManagerHelper {
 
-    private static final EntityManagerFactory emf; 
+    private static final EntityManagerFactory emf;
     private static final ThreadLocal<EntityManager> threadLocal;
 
     static {
-        emf = Persistence.createEntityManagerFactory("mysql");
+        emf = Persistence.createEntityManagerFactory("dev");
         threadLocal = new ThreadLocal<EntityManager>();
     }
 
@@ -44,5 +46,5 @@ public class EntityManagerHelper {
 
     public static void commit() {
         getEntityManager().getTransaction().commit();
-    } 
+    }
 }

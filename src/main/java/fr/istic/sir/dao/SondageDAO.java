@@ -1,11 +1,7 @@
 package fr.istic.sir.dao;
 
-import domain.Sondage;
-import domain.SondageDate;
-import domain.SondageLieu;
+import domain.*;
 import jpa.EntityManagerHelper;
-import org.modelmapper.ModelMapper;
-
 import java.util.List;
 
 public class SondageDAO {

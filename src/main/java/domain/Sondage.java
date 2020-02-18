@@ -20,7 +20,7 @@ public abstract class Sondage {
 		this.lien = lien;
 	}
 
-	@ManyToMany (mappedBy = "sondages")
+	@ManyToMany (mappedBy = "sondagesParticipes")
 	public List<Utilisateur> getParticipants() {
 		return participants;
 	}

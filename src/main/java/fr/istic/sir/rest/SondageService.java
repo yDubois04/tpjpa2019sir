@@ -25,7 +25,7 @@ public class SondageService {
 
         for (Sondage sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setNames(sondage.getParticipants());
+            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             list.add(dto);
         }
@@ -33,7 +33,7 @@ public class SondageService {
     }
 
     @GET
-    @Path("/lieux")
+    @Path("/sondagesLieux")
     @Produces(MediaType.APPLICATION_JSON)
     public List<SondageDTO> getSondagesLieu () {
         List<SondageLieu> sondages = sDAO.findSondageLieu();
@@ -42,7 +42,7 @@ public class SondageService {
 
         for (SondageLieu sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setNames(sondage.getParticipants());
+            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             dto.setLieux(sondage.getLieuPossibles());
             list.add(dto);
@@ -51,7 +51,7 @@ public class SondageService {
     }
 
     @GET
-    @Path("/dates")
+    @Path("/sondagesDates")
     @Produces(MediaType.APPLICATION_JSON)
     public List<SondageDTO> getSondagesDate () {
         List<SondageDate> sondages = sDAO.findSondageDate();
@@ -60,7 +60,7 @@ public class SondageService {
 
         for (SondageDate sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setNames(sondage.getParticipants());
+            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             dto.setDates(sondage.getDatesPossibles());
             list.add(dto);
@@ -75,14 +75,14 @@ public class SondageService {
         ModelMapper mapper = new ModelMapper();
         Sondage sondage = sDAO.findByLien(lien);
         SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-        dto.setNames(sondage.getParticipants());
+        dto.setParticipants(sondage.getParticipants());
         dto.setUtilisateur(sondage.getCreateur());
 
         return dto;
     }
 
     @POST
-    @Path("/sondageDate")
+    @Path("/sondageDates")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createSondage (SondageDate sondageDate) {
         sDAO.save(sondageDate);
@@ -90,7 +90,7 @@ public class SondageService {
     }
 
     @POST
-    @Path("/sondageLieu")
+    @Path("/sondageLieux")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createSondageLieu (SondageLieu sondageLieu) {
         sDAO.save(sondageLieu);

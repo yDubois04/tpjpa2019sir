@@ -43,8 +43,10 @@ public class UtilisateurDTO {
 
     public void setLienSondageParticipes(Collection<Sondage> sondages) {
         ArrayList<String> listLien = new ArrayList<String>();
-        for (Sondage sondage : sondages) {
-            listLien.add(sondage.getLien());
+        if (sondages != null) {
+            for (Sondage sondage : sondages) {
+                listLien.add(sondage.getLien());
+            }
         }
         this.lienSondageParticipes = listLien;
     }
@@ -55,8 +57,10 @@ public class UtilisateurDTO {
 
     public void setLienSondageCrees (Collection<Sondage> sondages) {
         ArrayList<String> listLien = new ArrayList<String>();
-        for (Sondage sondage : sondages) {
-            listLien.add(sondage.getLien());
+        if (sondages != null) {
+            for (Sondage sondage : sondages) {
+                listLien.add(sondage.getLien());
+            }
         }
         this.lienSondageCrees = listLien;
     }

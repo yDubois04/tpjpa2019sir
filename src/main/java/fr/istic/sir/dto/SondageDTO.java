@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SondageDTO {
     private String lien;
-    private List<String> names;
+    private List<String> participants;
     private String utilisateur;
     private List<String> lieux;
     private List<String> dates;
@@ -22,16 +22,18 @@ public class SondageDTO {
         this.lien = lien;
     }
 
-    public List<String> getNames() {
-        return names;
+    public List<String> getParticipants() {
+        return participants;
     }
 
-    public void setNames(List<Utilisateur> users) {
+    public void setParticipants(List<Utilisateur> users) {
         ArrayList <String> names = new ArrayList<String>();
-        for (Utilisateur user : users) {
-            names.add(user.getNom());
+        if (users != null) {
+            for (Utilisateur user : users) {
+                names.add(user.getNom());
+            }
         }
-        this.names = names;
+        this.participants = names;
     }
 
     public String getUtilisateur() {
@@ -39,7 +41,9 @@ public class SondageDTO {
     }
 
     public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur.getMail();
+        if (utilisateur !=null) {
+            this.utilisateur = utilisateur.getMail();
+        }
     }
 
 
@@ -49,8 +53,10 @@ public class SondageDTO {
 
     public void setLieux(List<LieuReunion> listLieux) {
         ArrayList<String> list = new ArrayList<String>();
-        for (LieuReunion lieu : listLieux) {
-            list.add(lieu.getNomLieu());
+        if (listLieux != null) {
+            for (LieuReunion lieu : listLieux) {
+                list.add(lieu.getNomLieu());
+            }
         }
         this.lieux = list;
     }
@@ -61,10 +67,12 @@ public class SondageDTO {
 
     public void setDates(List<DateReunion> listDates) {
         ArrayList<String> list = new ArrayList<String>();
-        for (DateReunion date : listDates) {
-            list.add(date.getDate());
+        if (listDates != null) {
+            for (DateReunion date : listDates) {
+                list.add(date.getDate());
+            }
         }
-        this.lieux = list;
+        this.dates = list;
     }
 
 

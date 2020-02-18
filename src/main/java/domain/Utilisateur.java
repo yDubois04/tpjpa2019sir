@@ -11,7 +11,7 @@ public class Utilisateur {
 	private String mail;
 	private Collection<PrefAlim> prefAlim;
 	private Collection<Allergie> allergies;
-	private Collection<Sondage> sondages;
+	private Collection<Sondage> sondagesParticipes;
 	private Collection<Sondage> sondagesCrees;
 	
 	@Id
@@ -42,12 +42,12 @@ public class Utilisateur {
 
 	@ManyToMany
 	@JoinTable(name = "Utilisateur_Sondage")
-	public Collection<Sondage> getSondages() {
-		return sondages;
+	public Collection<Sondage> getSondagesParticipes() {
+		return sondagesParticipes;
 	}
 
-	public void setSondages(Collection<Sondage> sondages) {
-		this.sondages = sondages;
+	public void setSondagesParticipes(Collection<Sondage> sondagesParticipes) {
+		this.sondagesParticipes = sondagesParticipes;
 	}
 
 	@OneToMany (mappedBy = "createur")
