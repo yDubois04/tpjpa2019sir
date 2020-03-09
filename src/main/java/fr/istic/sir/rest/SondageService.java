@@ -82,7 +82,7 @@ public class SondageService {
     }
 
     @POST
-    @Path("/sondageDates")
+    @Path("/sondagesDates")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createSondage (SondageDate sondageDate) {
         sDAO.save(sondageDate);
