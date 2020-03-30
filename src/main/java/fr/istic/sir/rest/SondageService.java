@@ -50,6 +50,15 @@ public class SondageService {
         return list;
     }
 
+    @POST
+    @Path("/sondagesLieux")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Sondage createSondageLieu (SondageLieu sondageLieu) {
+        Sondage newSondageLieu = sDAO.save(sondageLieu);
+        return newSondageLieu;
+    }
+
     @GET
     @Path("/sondagesDates")
     @Produces(MediaType.APPLICATION_JSON)
@@ -68,6 +77,15 @@ public class SondageService {
         return list;
     }
 
+    @POST
+    @Path("/sondagesDates")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces (MediaType.APPLICATION_JSON)
+    public Sondage createSondage (SondageDate sondageDate) {
+        Sondage newSondage = sDAO.save(sondageDate);
+        return newSondage;
+    }
+
     @GET
     @Path("/{lienSondage}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -79,21 +97,5 @@ public class SondageService {
         dto.setUtilisateur(sondage.getCreateur());
 
         return dto;
-    }
-
-    @POST
-    @Path("/sondagesDates")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createSondage (SondageDate sondageDate) {
-        sDAO.save(sondageDate);
-        return Response.status(201).entity("Sondage de type date ajouté").build();
-    }
-
-    @POST
-    @Path("/sondagesLieux")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createSondageLieu (SondageLieu sondageLieu) {
-        sDAO.save(sondageLieu);
-        return Response.status(201).entity("Sondage de type lieu ajouté").build();
     }
 }

@@ -34,16 +34,22 @@ public class UtilisateurService {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createUtilisateur (Utilisateur utilisateur) {
-        dao.save(utilisateur);
-        return Response.status(201).entity("Utilisateur ajouté").build();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Utilisateur createUtilisateur (Utilisateur utilisateur) {
+        Utilisateur newU = dao.save(utilisateur);
+        return newU;
     }
 
     @GET
     @Path("/{emailUtilisateur}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Utilisateur getUtilisateurByEmail (@PathParam("emailUtilisateur") String email) {
-        return dao.findByEmail(email);
+    public UtilisateurDTO getUtilisateurByEmail (@PathParam("emailUtilisateur") String email) {
+        Utilisateur utilisateur = dao.findByEmail(email);
+        ModelMapper mapper = new ModelMapper();
+        UtilisateurDTO dto = mapper.map(utilisateur,UtilisateurDTO.class);
+        dto.setLienSondageParticipes(utilisateur.getSondagesParticipes());
+        dto.setLienSondageCrees(utilisateur.getSondagesCrees());
+        return dto;
     }
 
 }
