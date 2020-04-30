@@ -55,8 +55,6 @@ public class JpaTest {
 		sDate.setLien("sondage1.com");
 		ArrayList <Utilisateur> participants = new ArrayList<Utilisateur>();
 		Collections.addAll(participants,u2);
-		sDate.setParticipants(participants);
-
 		manager.persist(sDate);
 
 		SondageLieu sLieu = new SondageLieu();
@@ -69,7 +67,6 @@ public class JpaTest {
 		sLieu.setLieuPossibles(lieux);
 		sLieu.setCreateur(u3);
 		sLieu.setLien("sondage2.com");
-		sLieu.setParticipants(participants);
 		manager.persist(sLieu);
 	}
 

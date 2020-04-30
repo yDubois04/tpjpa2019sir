@@ -9,7 +9,6 @@ import java.util.List;
 
 public class SondageDTO {
     private String lien;
-    private List<String> participants;
     private String utilisateur;
     private List<String> lieux;
     private List<String> dates;
@@ -22,30 +21,15 @@ public class SondageDTO {
         this.lien = lien;
     }
 
-    public List<String> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Utilisateur> users) {
-        ArrayList <String> names = new ArrayList<String>();
-        if (users != null) {
-            for (Utilisateur user : users) {
-                names.add(user.getNom());
-            }
-        }
-        this.participants = names;
-    }
-
     public String getUtilisateur() {
         return utilisateur;
     }
 
     public void setUtilisateur(Utilisateur utilisateur) {
-        if (utilisateur !=null) {
+        if (utilisateur != null) {
             this.utilisateur = utilisateur.getMail();
         }
     }
-
 
     public List<String> getLieux() {
         return lieux;

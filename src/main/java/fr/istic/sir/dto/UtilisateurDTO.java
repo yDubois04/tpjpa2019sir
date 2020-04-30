@@ -37,20 +37,6 @@ public class UtilisateurDTO {
         this.mail = mail;
     }
 
-    public List<String> getLienSondageParticipes() {
-        return lienSondageParticipes;
-    }
-
-    public void setLienSondageParticipes(Collection<Sondage> sondages) {
-        ArrayList<String> listLien = new ArrayList<String>();
-        if (sondages != null) {
-            for (Sondage sondage : sondages) {
-                listLien.add(sondage.getLien());
-            }
-        }
-        this.lienSondageParticipes = listLien;
-    }
-
     public List<String> getLienSondageCrees() {
         return lienSondageCrees;
     }

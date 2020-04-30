@@ -8,7 +8,6 @@ import javax.persistence.*;
 public abstract class Sondage {
 	
 	private String lien;
-	private List<Utilisateur> participants;
 	private Utilisateur createur;
 
 	@Id
@@ -18,15 +17,6 @@ public abstract class Sondage {
 
 	public void setLien(String lien) {
 		this.lien = lien;
-	}
-
-	@ManyToMany (mappedBy = "sondagesParticipes")
-	public List<Utilisateur> getParticipants() {
-		return participants;
-	}
-
-	public void setParticipants(List<Utilisateur> participants) {
-		this.participants = participants;
 	}
 
 	@ManyToOne
@@ -41,7 +31,7 @@ public abstract class Sondage {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [lien=" + lien + ", createur=" + createur.toString() + ", nbParticipants=" + participants.size() + "]";
+		return "Utilisateur [lien=" + lien + ", createur=" + createur.toString() + "]";
 	}
 
 }

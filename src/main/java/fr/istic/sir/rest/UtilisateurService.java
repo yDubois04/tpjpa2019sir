@@ -25,7 +25,6 @@ public class UtilisateurService {
 
         for (Utilisateur utilisateur : users) {
             UtilisateurDTO dto = mapper.map(utilisateur,UtilisateurDTO.class);
-            dto.setLienSondageParticipes(utilisateur.getSondagesParticipes());
             dto.setLienSondageCrees(utilisateur.getSondagesCrees());
             list.add(dto);
         }
@@ -47,7 +46,6 @@ public class UtilisateurService {
         Utilisateur utilisateur = dao.findByEmail(email);
         ModelMapper mapper = new ModelMapper();
         UtilisateurDTO dto = mapper.map(utilisateur,UtilisateurDTO.class);
-        dto.setLienSondageParticipes(utilisateur.getSondagesParticipes());
         dto.setLienSondageCrees(utilisateur.getSondagesCrees());
         return dto;
     }

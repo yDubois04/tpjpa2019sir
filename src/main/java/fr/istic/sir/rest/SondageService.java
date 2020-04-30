@@ -25,7 +25,6 @@ public class SondageService {
 
         for (Sondage sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             list.add(dto);
         }
@@ -42,7 +41,6 @@ public class SondageService {
 
         for (SondageLieu sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             dto.setLieux(sondage.getLieuPossibles());
             list.add(dto);
@@ -69,7 +67,6 @@ public class SondageService {
 
         for (SondageDate sondage : sondages) {
             SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-            dto.setParticipants(sondage.getParticipants());
             dto.setUtilisateur(sondage.getCreateur());
             dto.setDates(sondage.getDatesPossibles());
             list.add(dto);
@@ -93,7 +90,6 @@ public class SondageService {
         ModelMapper mapper = new ModelMapper();
         Sondage sondage = sDAO.findByLien(lien);
         SondageDTO dto = mapper.map(sondage, SondageDTO.class);
-        dto.setParticipants(sondage.getParticipants());
         dto.setUtilisateur(sondage.getCreateur());
 
         return dto;
