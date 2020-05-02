@@ -1,13 +1,12 @@
 package fr.istic.sir.rest;
 
-import domain.Utilisateur;
+import fr.istic.sir.domain.Utilisateur;
 import fr.istic.sir.dao.UtilisateurDAO;
 import fr.istic.sir.dto.UtilisateurDTO;
 import org.modelmapper.ModelMapper;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 

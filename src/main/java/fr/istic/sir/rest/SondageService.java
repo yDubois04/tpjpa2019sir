@@ -1,13 +1,14 @@
 package fr.istic.sir.rest;
 
-import domain.*;
+import fr.istic.sir.domain.*;
 import fr.istic.sir.dao.SondageDAO;
+import fr.istic.sir.dto.DateReunionDTO;
+import fr.istic.sir.dto.LieuReunionDTO;
 import fr.istic.sir.dto.SondageDTO;
 import org.modelmapper.ModelMapper;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,14 +85,81 @@ public class SondageService {
     }
 
     @GET
-    @Path("/{lienSondage}")
+    @Path("/sondagesDates/{lienSondage}")
     @Produces(MediaType.APPLICATION_JSON)
-    public SondageDTO getSondageByLien (@PathParam("lienSondage") String lien) {
+    public SondageDTO getSondageDatesByLien (@PathParam("lienSondage") String lien) {
         ModelMapper mapper = new ModelMapper();
-        Sondage sondage = sDAO.findByLien(lien);
+        SondageDate sondage = sDAO.findSDByLien(lien);
         SondageDTO dto = mapper.map(sondage, SondageDTO.class);
         dto.setUtilisateur(sondage.getCreateur());
+        dto.setDates(sondage.getDatesPossibles());
+        return dto;
+    }
 
+    @GET
+    @Path("/sondagesLieux/{lienSondage}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public SondageDTO getSondageLieuxByLien (@PathParam("lienSondage") String lien) {
+        ModelMapper mapper = new ModelMapper();
+        SondageLieu sondage = sDAO.findSLByLien(lien);
+        SondageDTO dto = mapper.map(sondage, SondageDTO.class);
+        dto.setUtilisateur(sondage.getCreateur());
+        dto.setLieux(sondage.getLieuPossibles());
+
+        return dto;
+    }
+
+    @GET
+    @Path("/lieux")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<LieuReunionDTO> getLieux () {
+        List<LieuReunion> lieux = sDAO.findLieux();
+        ModelMapper mapper = new ModelMapper();
+        ArrayList<LieuReunionDTO> list = new ArrayList<LieuReunionDTO>();
+
+        for (LieuReunion lieu : lieux) {
+            LieuReunionDTO dto = mapper.map(lieu, LieuReunionDTO.class);
+            dto.setSondages(lieu.getSondages());
+            list.add(dto);
+        }
+        return list;
+    }
+
+    @GET
+    @Path("/dates")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<DateReunionDTO> getDates () {
+        List<DateReunion> dates = sDAO.findDates();
+        ModelMapper mapper = new ModelMapper();
+        ArrayList<DateReunionDTO> list = new ArrayList<DateReunionDTO>();
+
+        for (DateReunion date : dates) {
+            DateReunionDTO dto = mapper.map(date, DateReunionDTO.class);
+            dto.setSondages(date.getSondages());
+            list.add(dto);
+        }
+        return list;
+    }
+
+    @GET
+    @Path("/date/{lienSondage}/{date}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public DateReunionDTO getDate (@PathParam("lienSondage") String lien, @PathParam("date") String date) {
+        DateReunion dateReunion = sDAO.findDate(lien, date);
+        ModelMapper mapper = new ModelMapper();
+        DateReunionDTO dto = mapper.map(dateReunion, DateReunionDTO.class);
+        dto.setSondages(dateReunion.getSondages());
+        return dto;
+    }
+
+    @GET
+    @Path("/lieu/{lienSondage}/{lieu}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public LieuReunionDTO getLieu (@PathParam("lienSondage") String lien, @PathParam("lieu") String lieu) {
+        LieuReunion lieuReunion = sDAO.findLieu(lien, lieu);
+        ModelMapper mapper = new ModelMapper();
+        LieuReunionDTO dto = mapper.map(lieuReunion, LieuReunionDTO.class);
+        dto.setSondages(lieuReunion.getSondages());
         return dto;
     }
 }

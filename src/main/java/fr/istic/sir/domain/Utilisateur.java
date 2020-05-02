@@ -1,4 +1,4 @@
-package domain;
+package fr.istic.sir.domain;
 
 import java.util.Collection;
 import javax.persistence.*;

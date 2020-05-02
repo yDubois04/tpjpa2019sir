@@ -1,6 +1,6 @@
 package fr.istic.sir.dao;
 
-import domain.Utilisateur;
+import fr.istic.sir.domain.Utilisateur;
 import jpa.EntityManagerHelper;
 
 import java.util.List;

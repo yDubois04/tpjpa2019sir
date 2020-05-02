@@ -1,8 +1,8 @@
 package fr.istic.sir.dto;
 
-import domain.DateReunion;
-import domain.LieuReunion;
-import domain.Utilisateur;
+import fr.istic.sir.domain.DateReunion;
+import fr.istic.sir.domain.LieuReunion;
+import fr.istic.sir.domain.Utilisateur;
 
 import java.util.ArrayList;
 import java.util.List;

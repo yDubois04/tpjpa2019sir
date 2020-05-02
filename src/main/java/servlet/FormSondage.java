@@ -1,13 +1,12 @@
 package servlet;
 
-        import domain.DateReunion;
-        import domain.SondageDate;
-        import domain.Utilisateur;
+        import fr.istic.sir.domain.DateReunion;
+        import fr.istic.sir.domain.SondageDate;
+        import fr.istic.sir.domain.Utilisateur;
 
         import java.io.IOException;
         import java.io.PrintWriter;
         import java.util.ArrayList;
-        import java.util.Date;
         import java.util.List;
 
         import javax.persistence.*;

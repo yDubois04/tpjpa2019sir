@@ -1,4 +1,4 @@
-package domain;
+package fr.istic.sir.domain;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class DateReunion {
 		this.id = id;
 	}
 
-	@OneToMany(mappedBy = "dateReunion")
+	@OneToMany(mappedBy = "dateReunion", cascade = CascadeType.ALL)
 	public List<Reunion> getReunions() {
 		return reunions;
 	}

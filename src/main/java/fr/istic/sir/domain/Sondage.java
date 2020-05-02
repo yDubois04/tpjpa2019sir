@@ -1,6 +1,4 @@
-package domain;
-
-import java.util.List;
+package fr.istic.sir.domain;
 
 import javax.persistence.*;
 @Entity

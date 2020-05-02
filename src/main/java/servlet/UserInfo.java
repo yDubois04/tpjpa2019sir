@@ -1,6 +1,6 @@
 package servlet;
 
-import domain.Utilisateur;
+import fr.istic.sir.domain.Utilisateur;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
