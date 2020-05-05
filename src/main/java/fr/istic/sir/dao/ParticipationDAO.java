@@ -30,4 +30,21 @@ public class ParticipationDAO {
         return EntityManagerHelper.getEntityManager().createQuery("select p from ParticipationSondageLieu as p", ParticipationSondageLieu.class)
                 .getResultList();
     }
+
+    public List<ParticipationSondageLieu> countParticipationsSL (){
+        return EntityManagerHelper.getEntityManager()
+                .createQuery("SELECT s.sondage.lien, s.lieuChoisi.nomLieu, COUNT(s)" +
+                        " FROM ParticipationSondageLieu as s" +
+                        " GROUP BY s.sondage.lien, s.lieuChoisi.nomLieu")
+                .getResultList();
+    }
+
+    public List<ParticipationSondageDate> countParticipationsSD (){
+        return EntityManagerHelper.getEntityManager()
+                .createQuery("SELECT s.sondage.lien, s.dateChoisie.date, COUNT(s)" +
+                        " FROM ParticipationSondageDate as s" +
+                        " GROUP BY s.sondage.lien, s.dateChoisie.date")
+                .getResultList();
+    }
+
 }
