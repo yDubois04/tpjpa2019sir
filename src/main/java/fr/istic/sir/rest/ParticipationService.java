@@ -47,4 +47,20 @@ public class ParticipationService {
         Participation newPartSD = pDAO.save(partSD);
         return newPartSD;
     }
+
+    @GET
+    @Path("/sondageLieux/count")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ParticipationSondageLieu> getCountParticipationSondagesLieux() {
+        return pDAO.countParticipationsSL();
+    }
+
+    @GET
+    @Path("/sondageDates/count")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ParticipationSondageDate> getCountParticipationSondagesDates() {
+        return pDAO.countParticipationsSD();
+    }
+
+
 }
