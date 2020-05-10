@@ -1,5 +1,8 @@
 package fr.istic.sir.dao;
 
+import fr.istic.sir.domain.Allergie;
+import fr.istic.sir.domain.LieuReunion;
+import fr.istic.sir.domain.PrefAlim;
 import fr.istic.sir.domain.Utilisateur;
 import jpa.EntityManagerHelper;
 
@@ -27,5 +30,18 @@ public class UtilisateurDAO {
     public List<Utilisateur> findAll() {
         return EntityManagerHelper.getEntityManager().createQuery("select u from Utilisateur as u", Utilisateur.class)
                 .getResultList();
+    }
+    public void updateAllergies (String email, List<Allergie> allergies) {
+        Utilisateur u = this.findByEmail(email);
+        EntityManagerHelper.getEntityManager().getTransaction().begin();
+        u.setAllergies(allergies);
+        EntityManagerHelper.getEntityManager().getTransaction().commit();
+    }
+
+    public void updatePrefAlim (String email, List<PrefAlim> prefs) {
+        Utilisateur u = this.findByEmail(email);
+        EntityManagerHelper.getEntityManager().getTransaction().begin();
+        u.setPrefAlim(prefs);
+        EntityManagerHelper.getEntityManager().getTransaction().commit();
     }
 }

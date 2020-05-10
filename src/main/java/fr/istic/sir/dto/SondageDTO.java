@@ -10,8 +10,8 @@ import java.util.List;
 public class SondageDTO {
     private String lien;
     private String utilisateur;
-    private List<String> lieux;
-    private List<String> dates;
+    private List<LieuReunion> lieux;
+    private List<DateReunion> dates;
 
     public String getLien() {
         return lien;
@@ -31,29 +31,36 @@ public class SondageDTO {
         }
     }
 
-    public List<String> getLieux() {
+    public List<LieuReunion> getLieux() {
         return lieux;
     }
 
     public void setLieux(List<LieuReunion> listLieux) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<LieuReunion> list = new ArrayList<LieuReunion>();
         if (listLieux != null) {
             for (LieuReunion lieu : listLieux) {
-                list.add(lieu.getNomLieu());
+                LieuReunion l = new LieuReunion();
+                l.setId(lieu.getId());
+                l.setNomLieu(lieu.getNomLieu());
+                list.add(l);
             }
         }
         this.lieux = list;
     }
 
-    public List<String> getDates() {
+    public List<DateReunion> getDates() {
         return dates;
     }
 
     public void setDates(List<DateReunion> listDates) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<DateReunion> list = new ArrayList<DateReunion>();
         if (listDates != null) {
             for (DateReunion date : listDates) {
-                list.add(date.getDate());
+                DateReunion d = new DateReunion();
+                d.setId(d.getId());
+                d.setContientPauseDej(date.isContientPauseDej());
+                d.setDate(date.getDate());
+                list.add(d);
             }
         }
         this.dates = list;

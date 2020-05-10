@@ -1,5 +1,7 @@
 package fr.istic.sir.dto;
 
+import fr.istic.sir.domain.Allergie;
+import fr.istic.sir.domain.PrefAlim;
 import fr.istic.sir.domain.Sondage;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,7 +13,8 @@ public class UtilisateurDTO {
     private String prenom;
     private String mail;
     private List<String> lienSondageCrees;
-    private List<String> lienSondageParticipes;
+    private Collection<Allergie> allergies;
+    private Collection<PrefAlim> preferences;
 
     public String getNom() {
         return nom;
@@ -49,5 +52,20 @@ public class UtilisateurDTO {
             }
         }
         this.lienSondageCrees = listLien;
+    }
+    public Collection<Allergie> getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(Collection<Allergie> allergies) {
+        this.allergies = allergies;
+    }
+
+    public Collection<PrefAlim> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(Collection<PrefAlim> preferences) {
+        this.preferences = preferences;
     }
 }

@@ -21,7 +21,7 @@ public class Utilisateur {
 		this.mail = mail;
 	}
 
-	@ManyToMany
+	@ManyToMany (cascade = CascadeType.ALL)
 	public Collection<PrefAlim> getPrefAlim() {
 		return prefAlim;
 	}
@@ -30,7 +30,7 @@ public class Utilisateur {
 		this.prefAlim = prefAlim;
 	}
 
-	@ManyToMany
+	@ManyToMany (cascade = CascadeType.ALL)
 	public Collection<Allergie> getAllergies() {
 		return allergies;
 	}

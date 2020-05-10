@@ -6,7 +6,18 @@ import javax.persistence.*;
 public class Allergie {
 	
 	@Id
+	@GeneratedValue
+	private long id;
+
 	private String allergie;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getAllergie() {
 		return allergie;

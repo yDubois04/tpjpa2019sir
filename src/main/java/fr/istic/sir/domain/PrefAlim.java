@@ -6,7 +6,17 @@ import javax.persistence.*;
 public class PrefAlim {
 	
 	@Id
+	@GeneratedValue
+	private long id;
 	private String prefAlim;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getPrefAlim() {
 		return prefAlim;
