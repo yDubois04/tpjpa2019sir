@@ -59,7 +59,6 @@ public class SondageService {
     @Produces(MediaType.APPLICATION_JSON)
     public Sondage createSondageLieu (SondageLieu sondageLieu) {
         Sondage newSondageLieu = sDAO.save(sondageLieu);
-        sendMail(sondageLieu.getCreateur().getMail(), sondageLieu);
         return newSondageLieu;
     }
 
@@ -86,7 +85,6 @@ public class SondageService {
     @Produces (MediaType.APPLICATION_JSON)
     public Sondage createSondage (SondageDate sondageDate) {
         Sondage newSondage = sDAO.save(sondageDate);
-        sendMail(sondageDate.getCreateur().getMail(), sondageDate);
         return newSondage;
     }
 
@@ -168,40 +166,4 @@ public class SondageService {
         dto.setSondages(lieuReunion.getSondages());
         return dto;
     }
-
-    private void sendMail(String mail, Sondage sondage){
-        String to = mail;
-        String from = "projetsir.duboislebreton@gmail.com";
-        String host = "smtp.gmail.com";
-
-        Properties properties = System.getProperties();
-        properties.put("mail.smtp.host", host);
-        properties.put("mail.smtp.port", "465");
-        properties.put("mail.smtp.ssl.enable", "true");
-        properties.put("mail.smtp.auth", "true");
-
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("projetsir.duboislebreton@gmail.com", "projetsirdl");
-            }
-        });
-
-        session.setDebug(true);
-
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("Creation d'un nouveau sondage!");
-            message.setText("Votre sondage a bien été créer! Voici le lien : " + sondage.getLien());
-
-            System.out.println("Sending...");
-            Transport.send(message);
-            System.out.println("Sent message successfully....");
-        } catch (MessagingException mex) {
-            mex.printStackTrace();
-        }
-    }
-
-
 }
