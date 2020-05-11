@@ -1,7 +1,6 @@
 package fr.istic.sir.dao;
 
 import fr.istic.sir.domain.Allergie;
-import fr.istic.sir.domain.LieuReunion;
 import fr.istic.sir.domain.PrefAlim;
 import fr.istic.sir.domain.Utilisateur;
 import jpa.EntityManagerHelper;

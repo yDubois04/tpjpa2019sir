@@ -12,7 +12,7 @@ public class UtilisateurDTO {
     private String nom;
     private String prenom;
     private String mail;
-    private List<String> lienSondageCrees;
+    private Collection<String> lienSondageCrees;
     private Collection<Allergie> allergies;
     private Collection<PrefAlim> preferences;
 
@@ -40,11 +40,11 @@ public class UtilisateurDTO {
         this.mail = mail;
     }
 
-    public List<String> getLienSondageCrees() {
+    public Collection<String> getLienSondageCrees() {
         return lienSondageCrees;
     }
 
-    public void setLienSondageCrees (Collection<Sondage> sondages) {
+    public void setLienSondageCrees (Collection <Sondage> sondages) {
         ArrayList<String> listLien = new ArrayList<String>();
         if (sondages != null) {
             for (Sondage sondage : sondages) {

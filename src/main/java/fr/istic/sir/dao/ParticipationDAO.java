@@ -65,7 +65,7 @@ public class ParticipationDAO {
 
     public List<ParticipationSondageDate> getParticipantsSD (String sondage) {
         return EntityManagerHelper.getEntityManager()
-                .createQuery("select p from ParticipationSondageDate as p WHERE p.sondage = :lien ", ParticipationSondageDate.class)
+                .createQuery("select p from ParticipationSondageDate as p WHERE p.sondage.lien = :lien ", ParticipationSondageDate.class)
                 .setParameter("lien", sondage)
                 .getResultList();
     }

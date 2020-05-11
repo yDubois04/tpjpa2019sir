@@ -6,15 +6,11 @@ import fr.istic.sir.dto.DateReunionDTO;
 import fr.istic.sir.dto.LieuReunionDTO;
 import fr.istic.sir.dto.SondageDTO;
 import org.modelmapper.ModelMapper;
-
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.ws.rs.*;
-import javax.mail.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
+
 
 @Path("sondage")
 public class SondageService {
