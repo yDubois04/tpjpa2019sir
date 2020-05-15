@@ -1,7 +1,6 @@
 package jpa;
 
 import fr.istic.sir.domain.*;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,9 +38,9 @@ public class JpaTest {
 		}
 		tx.commit();
 
-		/*test.displayUserList();
+		test.displayUserList();
 		test.displaySondageDate();
-		test.displaySondageLieu();*/
+		test.displaySondageLieu();
 		test.displayCountPart();
 
 		manager.close();
@@ -173,5 +172,4 @@ public class JpaTest {
 			System.err.println(e);
 		}
 	}
-
 }

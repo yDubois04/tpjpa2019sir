@@ -124,20 +124,21 @@ public class ParticipationService {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            String txt = "";
+            String txt = "Bonjour, ";
+            txt += "\n";
 
             if (type.equals("lieu")) {
                 message.setSubject("Le lieu de la réunion a été choisi !");
-                txt += "Bonjour, le lieu pour la prochaine réunion est : " + info;
+                txt += "Le lieu pour la prochaine réunion est : " + info;
             }
             else if (type.equals("date") && pauseDej){
                 message.setSubject("La date de la réunion a été choisi !");
-                txt += "Bonjour, la date choisie pour la réunion est " +info;
+                txt += "La date choisie pour la réunion est " +info;
                 txt += " cette date contient une pause déjeuné, veuillez remplir le formulaire situé à cette adresse: http://localhost:4200/food ";
             }
             else {
                 message.setSubject("La date de la réunion a été choisi !");
-                txt += "Bonjour, la date choisie pour la réunion est " +info;
+                txt += "La date choisie pour la réunion est " +info;
             }
             txt += "\n";
             txt += " Le code pour entrer dans le batiment est 256C4524 ";
